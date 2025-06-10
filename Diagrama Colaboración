@@ -1,0 +1,17 @@
+@startuml
+title Diagrama de Colaboración – Módulo de Pago
+
+object Cliente
+object InterfazWeb
+object ModuloPago
+object Banco
+object ConfirmadorPedido
+
+Cliente -> InterfazWeb : 1. Iniciar proceso de pago
+InterfazWeb -> ModuloPago : 2. Enviar datos de tarjeta
+ModuloPago -> Banco : 3. Validar datos y autorizar pago
+Banco --> ModuloPago : 4. Resultado (Aprobado/Rechazado)
+ModuloPago -> ConfirmadorPedido : 5. Confirmar pedido
+ConfirmadorPedido --> Cliente : 6. Mostrar mensaje final
+
+@enduml
